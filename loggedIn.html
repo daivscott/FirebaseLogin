@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+
+
+<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyB9XxjJY71tIGgvfPHu6DtM8CwCXVPLJHM",
+        authDomain: "loginproject-d76ae.firebaseapp.com",
+        databaseURL: "https://loginproject-d76ae.firebaseio.com",
+        projectId: "loginproject-d76ae",
+        storageBucket: "loginproject-d76ae.appspot.com",
+        messagingSenderId: "253817108391"
+    };
+    firebase.initializeApp(config);
+</script>
+
+
+<body>
+<script>
+firebase.auth().onAuthStateChanged(function(user){
+
+if(user) {
+    document.body.innerHTML = '<h1> Congrats ' + user.displayName + '</h1>';
+}
+
+});
+</script>
+
+</body>
+</html>
