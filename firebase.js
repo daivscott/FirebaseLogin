@@ -11,7 +11,7 @@ firebase.initializeApp(config);
 
 // FirebaseUI config.
 var uiConfig = {
-    signInSuccessUrl: 'loggedIn.html',
+    signInSuccessUrl: '#loggedin-page',
     signInOptions: [
         // Leave the lines as is for the providers you want to offer your users.
 
