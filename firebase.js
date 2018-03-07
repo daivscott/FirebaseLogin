@@ -9,6 +9,7 @@ var config = {
 };
 firebase.initializeApp(config);
 
+
 // FirebaseUI config.
 var uiConfig = {
     signInSuccessUrl: '#loggedin-page',
