@@ -54,7 +54,7 @@ console.error('Sign Out Error', error);
 
             if(firebaseUser)
             {
-                isNew = task.getResult().getAdditionalUserInfo().isNewUser();
+                /*var isNew = task.getResult().getAdditionalUserInfo().isNewUser();
 
                 // document.body.innerHTML = '<h1> Congrats ' + user.displayName + '</h1>';
                 if(isNew)
@@ -64,9 +64,10 @@ console.error('Sign Out Error', error);
                 } else
                     {
                         $.mobile.changePage('#home-page', {transition: "pop", reverse: true});
-                        LoadOrCreate(firebaseUser)
-                    }
-                //LoadOrCreate(firebaseUser);
+                        LoadOrCreate(firebaseUser);
+                    }*/
+                $.mobile.changePage('#home-page', {transition: "pop", reverse: true});
+                LoadOrCreate(firebaseUser);
             }
 
         });
@@ -102,7 +103,7 @@ console.error('Sign Out Error', error);
         <h1>Home</h1>
     </div>
     <script>
-        document.body.innerHTML = '<h1> Congrats ' + user.displayName + '</h1>';
+        document.body.innerHTML = '<h1> Congrats ' + user.displayName + ' welcome to the hme page</h1>';
     </script>
     </div>
 </div>
