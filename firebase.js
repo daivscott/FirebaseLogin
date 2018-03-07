@@ -12,7 +12,7 @@ firebase.initializeApp(config);
 
 // FirebaseUI config.
 var uiConfig = {
-    signInSuccessUrl: '#loggedin-page',
+    signInSuccessUrl: ('#loggedin-page', {transition : "pop", reverse : true}),
     signInOptions: [
         // Leave the lines as is for the providers you want to offer your users.
 
