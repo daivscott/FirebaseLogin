@@ -19,15 +19,23 @@
 
     <!--Social Rating App Javascript-->
     <script src="js/firebase.js"></script>
-    <style>
+    <!--<style>
         #map {
             height: 400px;
             width: 100%;
         }
-    </style>
+    </style>-->
 </head>
 
 <body>
+
+<script>
+firebase.auth().signOut().then(function() {
+console.log('Signed Out');
+}, function(error) {
+console.error('Sign Out Error', error);
+});
+</script>
 
 <div data-role="page" id="login-reg-page">
     <div data-role="header">
@@ -46,9 +54,19 @@
 
             if(firebaseUser)
             {
+                isNew = task.getResult().getAdditionalUserInfo().isNewUser();
+
                 // document.body.innerHTML = '<h1> Congrats ' + user.displayName + '</h1>';
-                $.mobile.changePage('#feed-page', {transition : "pop", reverse : true});
-                LoadOrCreate(firebaseUser);
+                if(isNew)
+                {
+                    $.mobile.changePage('#feed-page', {transition: "pop", reverse: true});
+                    LoadOrCreate(firebaseUser);
+                } else
+                    {
+                        $.mobile.changePage('#home-page', {transition: "pop", reverse: true});
+                        LoadOrCreate(firebaseUser)
+                    }
+                //LoadOrCreate(firebaseUser);
             }
 
         });
@@ -71,11 +89,21 @@
         <p>Upload a profile picture.</p>
         <progress value="0" max="100" id="profilePictureUploader">0%</progress>
         <input type="file" value="Upload" id="profilePictureUploadBtn" accept=".jpeg, .png, .jpg, .gif">
-        <div id="map"></div>
+        <!--<div id="map"></div>-->
 
         <!--<script async defer-->
         <!--src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeHvMDcOJAtZWjbBIhc9rK1I549fec_xY&callback=initMap">-->
         <!--</script>-->
+    </div>
+</div>
+
+<div data-role="page" id="home-page">
+    <div data-role="header">
+        <h1>Home</h1>
+    </div>
+    <script>
+        document.body.innerHTML = '<h1> Congrats ' + user.displayName + '</h1>';
+    </script>
     </div>
 </div>
 
